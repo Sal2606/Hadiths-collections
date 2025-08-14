@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Collection de Hadiths</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+<header>
+  <h1>📖 Hadiths Collection</h1>
+  <div id="controls">
+    <select id="collection">
+      <option value="bukhari">Sahih al-Bukhari</option>
+      <option value="muslim">Sahih Muslim</option>
+      <option value="tirmidhi">Jami Tirmidhi</option>
+    </select>
+    <select id="language">
+      <option value="fr">Français</option>
+      <option value="ar">Arabe</option>
+    </select>
+    <input type="text" id="search" placeholder="Rechercher...">
+    <button id="loadBtn">Afficher</button>
+  </div>
+</header>
+
+<main id="hadith-container"></main>
+
+<script src="script.js"></script>
+</body>
+</html>
