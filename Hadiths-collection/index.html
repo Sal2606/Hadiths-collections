@@ -3,25 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Collection de Hadiths</title>
+<title>Collections de Hadiths</title>
 <link rel="stylesheet" href="style.css">
 <style>
-  body { font-family: Arial, sans-serif; background:#f0f2f5; margin:0; padding:0; }
-  header { background:#4b6cb7; color:white; text-align:center; padding:20px; }
-  #controls { display:flex; justify-content:center; gap:10px; padding:20px; flex-wrap:wrap; }
+  body { margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f4f6f8; }
+  header { background: linear-gradient(90deg,#4b6cb7,#182848); color:white; padding:30px; text-align:center; }
+  header h1 { margin:0; font-size:2.2em; }
+  header p { margin:5px 0 0; font-size:1.1em; }
+  
+  #controls { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; padding:20px; }
+  select,input,button { padding:8px 12px; font-size:1em; border-radius:5px; border:1px solid #ccc; }
+  button { background:#4b6cb7; color:white; border:none; cursor:pointer; transition:0.3s; }
+  button:hover { background:#182848; }
+
   #hadith-container { display:flex; flex-direction:column; align-items:center; gap:15px; padding:20px; }
-  .hadith { background:#fff; padding:15px; border-radius:10px; max-width:800px; box-shadow:0 2px 5px rgba(0,0,0,0.1); transition: transform 0.2s; }
-  .hadith:hover { transform: translateY(-5px); }
-  .source { font-size:0.9em; color:#555; }
-  .explanation { margin-top:10px; font-style:italic; }
-  select,input,button { padding:5px 10px; font-size:1em; }
+  .hadith { background:#fff; padding:20px; border-radius:12px; max-width:850px; width:100%; box-shadow:0 4px 10px rgba(0,0,0,0.1); transform:translateY(0); transition:0.3s; }
+  .hadith:hover { transform:translateY(-8px); box-shadow:0 8px 15px rgba(0,0,0,0.2); }
+  .text { font-size:1.1em; }
+  .source { font-size:0.9em; color:#555; margin-top:5px; }
+  .explanation { font-style:italic; margin-top:10px; color:#333; }
+
+  .collection-card { display:flex; flex-direction:column; align-items:center; background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); margin-top:20px; max-width:850px; width:100%; }
+  .collection-card img { width:100%; max-height:250px; object-fit:cover; border-radius:10px; }
+  .collection-card h3 { margin:10px 0 5px; }
+  .collection-card p { margin:0 0 10px; font-size:0.95em; color:#444; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Collection de Hadiths</h1>
-  <p>Explorez les Sahihs en Français et Arabe</p>
+  <h1>Collections de Hadiths</h1>
+  <p>Découvrez Sahih Bukhari, Sahih Muslim et Jami' at-Tirmidhi en Français et Arabe</p>
 </header>
 
 <section id="controls">
@@ -41,6 +53,24 @@
 </section>
 
 <section id="hadith-container"></section>
+
+<section id="collection-info">
+  <div class="collection-card" id="card-bukhari">
+    <img src="assets/bukhari.jpg" alt="Bukhari">
+    <h3>Sahih Bukhari</h3>
+    <p>Imam Bukhari (810–870) est célèbre pour sa compilation rigoureuse de hadiths authentiques. Son recueil est l’un des plus fiables.</p>
+  </div>
+  <div class="collection-card" id="card-muslim">
+    <img src="assets/muslim.jpg" alt="Muslim">
+    <h3>Sahih Muslim</h3>
+    <p>Imam Muslim (821–875) a compilé un recueil de hadiths rigoureux, considéré comme l’un des deux Sahihs majeurs.</p>
+  </div>
+  <div class="collection-card" id="card-tirmidhi">
+    <img src="assets/tirmidhi.jpg" alt="Tirmidhi">
+    <h3>Jami' at-Tirmidhi</h3>
+    <p>Imam Tirmidhi (824–892) est connu pour ses hadiths avec classifications et commentaires sur l’authenticité.</p>
+  </div>
+</section>
 
 <script>
 const container = document.getElementById('hadith-container');
