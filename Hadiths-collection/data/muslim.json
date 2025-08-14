@@ -1,0 +1,12 @@
+[
+  { "collection":"muslim","language":"fr","text":"La prière est le pilier de la religion.","source":"Sahih Muslim","explanation":"Importance de la prière." },
+  { "collection":"muslim","language":"ar","text":"الصلاة عمود الدين","source":"صحيح مسلم","explanation":"أهمية الصلاة." },
+  { "collection":"muslim","language":"fr","text":"Le jeûne est un bouclier contre le feu de l'enfer.","source":"Sahih Muslim","explanation":"Le jeûne protège spirituellement." },
+  { "collection":"muslim","language":"ar","text":"الصوم جنة من النار","source":"صحيح مسلم","explanation":"الصوم يحمي روحياً." },
+  { "collection":"muslim","language":"fr","text":"La sincérité dans la parole est un signe de foi.","source":"Sahih Muslim","explanation":"Être sincère est essentiel." },
+  { "collection":"muslim","language":"ar","text":"الإخلاص في القول دليل على الإيمان","source":"صحيح مسلم","explanation":"الصدق علامة الإيمان." },
+  { "collection":"muslim","language":"fr","text":"Le meilleur des jeûnes est celui du Ramadan.","source":"Sahih Muslim","explanation":"Le Ramadan est le mois sacré." },
+  { "collection":"muslim","language":"ar","text":"أفضل الصيام صيام رمضان","source":"صحيح مسلم","explanation":"رمضان هو الشهر المبارك." },
+  { "collection":"muslim","language":"fr","text":"Le respect des parents est la voie du Paradis.","source":"Sahih Muslim","explanation":"Honorer ses parents est primordial." },
+  { "collection":"muslim","language":"ar","text":"بر الوالدين طريق الجنة","source":"صحيح مسلم","explanation":"إكرام الوالدين أمر أساسي." }
+]
