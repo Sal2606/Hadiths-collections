@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #4b6cb7;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+#controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px;
+}
+
+#hadith-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+.hadith {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 800px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.source {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.explanation {
+  margin-top: 10px;
+  font-style: italic;
+}

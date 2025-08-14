@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collection de Hadiths</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { font-family: Arial, sans-serif; background:#f0f2f5; margin:0; padding:0; }
+  header { background:#4b6cb7; color:white; text-align:center; padding:20px; }
+  #controls { display:flex; justify-content:center; gap:10px; padding:20px; flex-wrap:wrap; }
+  #hadith-container { display:flex; flex-direction:column; align-items:center; gap:15px; padding:20px; }
+  .hadith { background:#fff; padding:15px; border-radius:10px; max-width:800px; box-shadow:0 2px 5px rgba(0,0,0,0.1); transition: transform 0.2s; }
+  .hadith:hover { transform: translateY(-5px); }
+  .source { font-size:0.9em; color:#555; }
+  .explanation { margin-top:10px; font-style:italic; }
+  select,input,button { padding:5px 10px; font-size:1em; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Collection de Hadiths</h1>
+  <p>Explorez les Sahihs en Français et Arabe</p>
+</header>
+
+<section id="controls">
+  <select id="collection">
+    <option value="bukhari">Bukhari</option>
+    <option value="muslim">Muslim</option>
+    <option value="tirmidhi">Tirmidhi</option>
+  </select>
+
+  <select id="language">
+    <option value="fr">Français</option>
+    <option value="ar">Arabe</option>
+  </select>
+
+  <input type="text" id="search" placeholder="Rechercher un mot clé...">
+  <button id="loadBtn">Afficher</button>
+</section>
+
+<section id="hadith-container"></section>
+
+<script>
+const container = document.getElementById('hadith-container');
+const collectionSelect = document.getElementById('collection');
+const languageSelect = document.getElementById('language');
+const searchInput = document.getElementById('search');
+const loadBtn = document.getElementById('loadBtn');
+
+const dataFiles = {
+  bukhari: 'data/bukhari.json',
+  muslim: 'data/muslim.json',
+  tirmidhi: 'data/tirmidhi.json'
+};
+
+let currentHadiths = [];
+
+async function loadHadiths(collection) {
+  try {
+    const res = await fetch(dataFiles[collection]);
+    if(!res.ok) throw new Error(`Impossible de charger ${collection}.json`);
+    const data = await res.json();
+    currentHadiths = data;
+    displayHadiths();
+  } catch(err) {
+    console.error(err);
+    container.innerHTML = `<p style="color:red;">${err.message}</p>`;
+  }
+}
+
+function displayHadiths() {
+  const lang = languageSelect.value;
+  const searchTerm = searchInput.value.toLowerCase();
+
+  const filtered = currentHadiths.filter(h => 
+    h.language === lang &&
+    h.text.toLowerCase().includes(searchTerm)
+  );
+
+  container.innerHTML = '';
+  filtered.forEach(h => {
+    const div = document.createElement('div');
+    div.className = 'hadith';
+    div.innerHTML = `
+      <div class="text">${h.text}</div>
+      <div class="source">${h.source}</div>
+      <div class="explanation">${h.explanation}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+loadBtn.addEventListener('click', () => loadHadiths(collectionSelect.value));
+searchInput.addEventListener('input', displayHadiths);
+collectionSelect.addEventListener('change', () => loadHadiths(collectionSelect.value));
+
+// Charge Bukhari par défaut
+loadHadiths('bukhari');
+</script>
+
+</body>
+</html>
